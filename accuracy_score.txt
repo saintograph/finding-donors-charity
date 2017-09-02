@@ -1,0 +1,8 @@
+Final accuracy score on the testing data: 0.8685
+Final F-score on the testing data: 0.7477
+
+Final accuracy score on the testing data: 0.8697
+Final F-score on the testing data: 0.7499
+
+Final accuracy score on the testing data: 0.8702
+Final F-score on the testing data: 0.7510  // latest score after tuning

@@ -11819,7 +11819,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11936,7 +11936,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Total number of records</span>
@@ -11951,7 +11951,8 @@ div#notebook {
 <span class="n">n_at_most_50k</span> <span class="o">=</span> <span class="n">total50K</span><span class="p">[</span><span class="s1">&#39;&lt;=50K&#39;</span><span class="p">]</span>
 
 <span class="c1"># TODO: Percentage of individuals whose income is more than $50,000</span>
-<span class="n">greater_percent</span> <span class="o">=</span> <span class="n">n_greater_50k</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_greater_50k</span> <span class="o">+</span> <span class="n">n_at_most_50k</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">greater_percent</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_greater_50k</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_greater_50k</span> <span class="o">+</span> <span class="n">n_at_most_50k</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of records: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_records</span><span class="p">)</span>
@@ -11975,7 +11976,7 @@ div#notebook {
 <pre>Total number of records: 45222
 Individuals making more than $50,000: 11208
 Individuals making at most $50,000: 34014
-Percentage of individuals making more than $50,000: 0.00%
+Percentage of individuals making more than $50,000: 24.78%
 </pre>
 </div>
 </div>
@@ -14238,11 +14239,9 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <li>The <strong>Gradient Boosting Classifier</strong>(GBC) model is an tree-type, ensemble model which works on the principle of boosting weak learners iteratively by shifting focus towards problematic observations that were difficult to predict in previous iterations and performing an ensemble of weak learners, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, but it generalizes them by allowing optimization of an arbitrary differentiable loss function. ( <em>Statistics for Machine Learning, Pratap Dangeti, 2017 Packt Publishing</em> )</li>
 </ul>
 <p><strong>Layman's Terms</strong>:</p>
-<ul>
-<li>A decision tree is like a game of '20 questions' or going through a robot operator when you call customer service. You make choices from branches in the 'tree' until you reach a final decision ('the leaf').</li>
-<li>Weak learner to make predictions: Decision trees are used as a weak learner in GBC. Any results which are made with decision trees can be 'boosted' by GBC. That means better accuracy.</li>
-<li>Additive model to add weak learners to minimize the loss function: Trees are 'planted' on existing trees in the model. The existing trees are unchanged and a procedure named 'gradient boosting' minimizes the loss function when adding trees.</li>
-</ul>
+<p>To explain a Gradient Boosting Classifier, we should start with the pieces that it's made of.</p>
+<p>It's most basic piece is a decision tree (also called a weak learner), which is like a game of '20 questions' or going through a robot operator when you call customer service. You make choices from branches in the 'tree' until you reach a final decision ('the leaf'). In slightly more fancy parlance, a tree is a sequential decision process; we make small decisions until we reach the end.</p>
+<p>In the context of finding donors with a 'Gradient Boosting Classifier' model, the 'boosting' in the model's name comes from reiterating over results, placing a higher emphasis on miscalculated income. It does this with many trees in parallel/sequentially and gets a final result based on a majority vote (mean) or averaging of results.</p>
 
 </div>
 </div>
